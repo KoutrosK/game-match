@@ -1,0 +1,6 @@
+server:
+  servlet.context-path: "/game-match"
+spring:
+  profiles.active: "@activated-profiles@"
+  mvc.servlet.path: "/api"
+  application.name: "GameMatch"
