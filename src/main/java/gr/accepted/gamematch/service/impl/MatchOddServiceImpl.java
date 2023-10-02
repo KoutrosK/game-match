@@ -16,13 +16,13 @@ import lombok.extern.log4j.Log4j2;
 @Service
 @Log4j2
 public class MatchOddServiceImpl implements MatchOddService {
-	
+
 	@Autowired
 	private MatchOddDao matchOddDao;
 
 	@Override
 	public MatchOdd getMatchOddById(String matchOddId) {
-		
+
 		return matchOddDao.findById(Long.valueOf(matchOddId))
 				.orElseThrow(() -> new NotFoundException("Match odd with id " + matchOddId + " does not exist"));
 
@@ -30,9 +30,8 @@ public class MatchOddServiceImpl implements MatchOddService {
 
 	@Override
 	public MatchOdd getMatchOddByMatchId(String matchId) {
-		
-		return matchOddDao.findByMatch(Long.valueOf(matchId))
-				.orElseThrow(() -> new NotFoundException("Match odds for match with " + matchId + " not found")); 
+
+		return null;
 
 	}
 
@@ -49,21 +48,25 @@ public class MatchOddServiceImpl implements MatchOddService {
 	}
 
 	@Override
-	public MatchOdd updateMatchOdd(MatchOdd matchOdd) {
+	public MatchOdd updateMatchOdd(@NotNull @Valid MatchOdd matchOdd) {
 
 		return null;
 	}
 
 	@Override
-	public void deleteMatchOdd(MatchOdd matchOdd) {
-		// TODO Auto-generated method stub
+	public void deleteMatchOdd(@NotNull String matchOddId) {
+
+		MatchOdd matchOdd = matchOddDao.findById(Long.valueOf(matchOddId))
+				.orElseThrow(() -> new NotFoundException("Match with id " + matchOddId + " does not exist"));
+
+		matchOddDao.delete(matchOdd);
 
 	}
 
 	@Override
-	public void deleteMatchOddsByMatchId(String matchId) {
-		// TODO Auto-generated method stub
+	public void deleteMatchOddsByMatchId(@NotNull String matchId) {
 
+		matchOddDao.deleteByMatchId(Long.valueOf(matchId));
 	}
 
 }

@@ -58,7 +58,6 @@ public class MatchServiceImpl implements MatchService {
 		
 		matchDao.delete(match);
 
-
 	}
 
 }

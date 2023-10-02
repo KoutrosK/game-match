@@ -16,7 +16,7 @@ public interface MatchOddService {
 	
 	MatchOdd updateMatchOdd(MatchOdd matchOdd);
 	
-	void deleteMatchOdd(MatchOdd matchOdd);
+	void deleteMatchOdd(String matchOddId);
 	
 	void deleteMatchOddsByMatchId(String matchId);
 
