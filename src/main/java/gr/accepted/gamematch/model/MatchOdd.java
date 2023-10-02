@@ -35,7 +35,6 @@ public class MatchOdd {
 	@Positive(message = "cannot be a negative number")
 	private BigDecimal odd;
 
-	@NotNull(message = "cannot be null")
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Match match;
 
