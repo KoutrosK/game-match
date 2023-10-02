@@ -2,6 +2,10 @@ package gr.accepted.gamematch.model;
 
 import java.math.BigDecimal;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+import jakarta.persistence.Cacheable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -20,6 +24,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Table(name = "match_odds")
 @Entity
+@Cacheable
+@Cache(region = "entity", usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class MatchOdd {
 
 	@EqualsAndHashCode.Include
