@@ -39,12 +39,14 @@ public class MatchOddServiceImpl implements MatchOddService {
 	public List<MatchOdd> getMatchOdds() {
 
 		return matchOddDao.findAll();
+
 	}
 
 	@Override
 	public MatchOdd createMatchOdd(@NotNull @Valid MatchOdd matchOdd) {
 
 		return matchOddDao.saveAndFlush(matchOdd);
+
 	}
 
 	@Override
@@ -67,6 +69,7 @@ public class MatchOddServiceImpl implements MatchOddService {
 	public void deleteMatchOddsByMatchId(@NotNull String matchId) {
 
 		matchOddDao.deleteByMatchId(Long.valueOf(matchId));
+
 	}
 
 }
