@@ -1,0 +1,312 @@
+{
+	"info": {
+		"_postman_id": "5f555efd-d009-4c37-9abd-3d23eb2be220",
+		"name": "Game match odds",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7824380"
+	},
+	"item": [
+		{
+			"name": "Get all matches",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/game-match/api/match",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"game-match",
+						"api",
+						"match"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get match by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/game-match/api/match/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"game-match",
+						"api",
+						"match",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create match",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"xxx-xx\",\r\n    \"matchDate\": \"31/03/2023\",\r\n    \"matchTime\": \"17:15\",\r\n    \"teamA\": \"OSFP\",\r\n    \"teamB\": \"PAO\",\r\n    \"sport\": \"FOOTBALL\",\r\n    \"matchOdds\": [\r\n        {\r\n            \"specifier\": \"X\",\r\n            \"odd\": 0.75\r\n        },\r\n        {\r\n            \"specifier\": \"1\",\r\n            \"odd\": 1.50\r\n        },\r\n        {\r\n            \"specifier\": \"2\",\r\n            \"odd\": 0.35\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/game-match/api/match",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"game-match",
+						"api",
+						"match"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update match",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"update description\",\r\n    \"matchDate\": \"31/03/2023\",\r\n    \"matchTime\": \"17:15\",\r\n    \"teamA\": \"OSFP\",\r\n    \"teamB\": \"PAO\",\r\n    \"sport\": \"FOOTBALL\",\r\n    \"matchOdds\": [\r\n        {\r\n            \"specifier\": \"X\",\r\n            \"odd\": 0.90\r\n        },\r\n        {\r\n            \"specifier\": \"1\",\r\n            \"odd\": 1.50\r\n        },\r\n        {\r\n            \"specifier\": \"2\",\r\n            \"odd\": 0.35\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/game-match/api/match/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"game-match",
+						"api",
+						"match",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete match by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/game-match/api/match/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"game-match",
+						"api",
+						"match",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all match oods",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/game-match/api/match-odd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"game-match",
+						"api",
+						"match-odd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get match odds by match ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/game-match/api/match-odd/match/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"game-match",
+						"api",
+						"match-odd",
+						"match",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get match odd by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/game-match/api/match-odd/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"game-match",
+						"api",
+						"match-odd",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create match odd",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"specifier\": \"X\",\r\n    \"odd\": 0.75,\r\n    \"matchId\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/game-match/api/match-odd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"game-match",
+						"api",
+						"match-odd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update match odd",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"specifier\": \"1\",\r\n    \"odd\": 0.90,\r\n    \"matchId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/game-match/api/match-odd/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"game-match",
+						"api",
+						"match-odd",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete match odd by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/game-match/api/match-odd/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"game-match",
+						"api",
+						"match-odd",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete match odds by match ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/game-match/api/match-odd?matchId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"game-match",
+						"api",
+						"match-odd"
+					],
+					"query": [
+						{
+							"key": "matchId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

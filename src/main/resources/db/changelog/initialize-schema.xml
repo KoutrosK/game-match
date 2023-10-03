@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+	<changeSet id="initialize-schema" author="konkoutros@gmail.com">
+
+		<createTable tableName="match">
+
+			<column name="id" type="bigint" autoIncrement="true">
+				<constraints nullable="false" primaryKey="true" />
+			</column>
+
+			<column name="description" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="match_date" type="date">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="match_time" type="time">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="team_a" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="team_b" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="sport" type="integer">
+				<constraints nullable="false" />
+			</column>
+
+		</createTable>
+
+		<createIndex tableName="match" indexName="idx_match_id">
+			<column name="id" />
+		</createIndex>
+
+		<createTable tableName="match_odds">
+
+			<column name="id" type="bigint" autoIncrement="true">
+				<constraints nullable="false" primaryKey="true" />
+			</column>
+
+			<column name="match_id" type="bigint">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="specifier" type="varchar(1)">
+				<constraints nullable="false" />
+			</column>
+			
+			<column name="odd" type="numeric(10, 2)">
+				<constraints nullable="false" />
+			</column>
+
+		</createTable>
+
+		<createIndex tableName="match_odds" indexName="idx_match_odds_id">
+			<column name="id" />
+		</createIndex>
+
+		<addForeignKeyConstraint
+			constraintName="fk_match_odds_match" baseColumnNames="match_id"
+			baseTableName="match_odds" referencedTableName="match"
+			referencedColumnNames="id" />
+		
+		<sqlFile path="initial_data.sql" encoding="UTF-8" relativeToChangelogFile="true" />
+		
+	</changeSet>
+
+</databaseChangeLog>
