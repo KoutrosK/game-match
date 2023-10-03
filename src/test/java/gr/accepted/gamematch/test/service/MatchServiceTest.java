@@ -38,7 +38,7 @@ public class MatchServiceTest {
 	@DisplayName("Should get match by ID")
 	void getMatchById() {
 
-		Assertions.assertNotNull(matchService.getMatchById("1"));
+		Assertions.assertNotNull(matchService.getMatchById(1L));
 	}
 
 }

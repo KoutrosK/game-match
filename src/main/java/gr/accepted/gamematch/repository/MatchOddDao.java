@@ -19,5 +19,5 @@ public interface MatchOddDao extends JpaRepository<MatchOdd, Long> {
 	@Modifying
 	@Query("delete from MatchOdd m where m.match.id =:matchId")
 	void deleteByMatchId(@Param("matchId") Long matchId);
-
+	
 }

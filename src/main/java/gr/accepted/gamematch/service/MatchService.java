@@ -6,14 +6,14 @@ import gr.accepted.gamematch.model.Match;
 
 public interface MatchService {
 
-	Match getMatchById(String matchId);
+	Match getMatchById(Long matchId);
 
 	List<Match> getAllMatches();
 
 	Match createMatch(Match match);
 
-	Match updateMatch(Match match);
+	Match updateMatch(Match match, Long matchId);
 
-	void deleteMatchById(String matchId);
+	void deleteMatchById(Long matchId);
 
 }

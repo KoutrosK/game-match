@@ -57,7 +57,7 @@
 				<constraints nullable="false" />
 			</column>
 			
-			<column name="odd" type="decimal">
+			<column name="odd" type="numeric(10, 2)">
 				<constraints nullable="false" />
 			</column>
 
