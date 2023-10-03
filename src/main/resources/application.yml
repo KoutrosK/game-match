@@ -4,3 +4,5 @@ spring:
   profiles.active: "@activated-profiles@"
   mvc.servlet.path: "/api"
   application.name: "GameMatch"
+springdoc.override-with-generic-response: false
+
