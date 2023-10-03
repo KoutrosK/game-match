@@ -71,7 +71,9 @@
 			constraintName="fk_match_odds_match" baseColumnNames="match_id"
 			baseTableName="match_odds" referencedTableName="match"
 			referencedColumnNames="id" />
-
+		
+		<sqlFile path="initial_data.sql" encoding="UTF-8" relativeToChangelogFile="true" />
+		
 	</changeSet>
 
 </databaseChangeLog>
