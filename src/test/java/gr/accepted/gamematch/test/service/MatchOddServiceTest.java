@@ -29,7 +29,7 @@ public class MatchOddServiceTest {
 	@DisplayName("Should delete match odds by match ID")
 	void getMatches() {
 
-		matchOddService.deleteMatchOddsByMatchId("1");
+		matchOddService.deleteMatchOddsByMatchId(1L);
 
 	}
 

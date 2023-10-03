@@ -44,7 +44,7 @@ public class MatchOdd {
 	@Positive(message = "cannot be a negative number")
 	private BigDecimal odd;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "match_id")
 	@JsonIgnore
 	private Match match;

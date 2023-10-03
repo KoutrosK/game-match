@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import gr.accepted.gamematch.exception.NotFoundException;
 import gr.accepted.gamematch.model.Match;
 import gr.accepted.gamematch.repository.MatchDao;
+import gr.accepted.gamematch.repository.MatchOddDao;
 import gr.accepted.gamematch.service.MatchOddService;
 import gr.accepted.gamematch.service.MatchService;
 import jakarta.transaction.Transactional;
@@ -27,7 +28,7 @@ public class MatchServiceImpl implements MatchService {
 	private MatchDao matchDao;
 
 	@Autowired
-	private MatchOddService matchOddService;
+	private MatchOddDao matchOddDao;
 
 	@Override
 	public Match getMatchById(Long matchId) {
@@ -72,7 +73,7 @@ public class MatchServiceImpl implements MatchService {
 		if (match.getMatchOdds() != null && !match.getMatchOdds().isEmpty()) {
 
 			// Delete the previous odds
-			matchOddService.deleteMatchOddsByMatchId(String.valueOf(matchId));
+			matchOddDao.deleteByMatchId(matchId);
 
 			// Set the current odds to match
 			match.getMatchOdds().stream().forEach(matchOdd -> matchOdd.setMatch(match));
