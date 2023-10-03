@@ -36,4 +36,4 @@ logging:
     root: info
     org.springframework.web: info
     gr.accepted.gamematch: info
-    org.hibernate: debug
+    org.hibernate: info

@@ -1,5 +1,6 @@
 package gr.accepted.gamematch.config;
 
+import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -31,6 +32,12 @@ public class HazelcastConfiguration {
 
 		return Hazelcast.newHazelcastInstance(new Config().setInstanceName("gamematch-instance")
 				.addMapConfig(entitiesMap).addMapConfig(serviceMap));
+	}
+	
+	@Bean("hazelcastKeyGenerator")
+	public KeyGenerator keyGenerator() {
+		
+		return new HazelcastKeyGenerator();
 	}
 
 }

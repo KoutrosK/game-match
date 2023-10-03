@@ -11,7 +11,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalTimeSerializer;
 
 import jakarta.persistence.Cacheable;
 import jakarta.persistence.CascadeType;
@@ -47,7 +49,7 @@ public class Match {
 
 	@EqualsAndHashCode.Include
 	@Column(name = "match_date")
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy/MM/dd")
 	@JsonDeserialize(using = LocalDateDeserializer.class)
 	@JsonSerialize(using = LocalDateSerializer.class)
 	@NotNull(message = "cannot be null")
@@ -56,8 +58,8 @@ public class Match {
 	@EqualsAndHashCode.Include
 	@Column(name = "match_time")
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "hh:mm")
-	@JsonDeserialize(using = LocalDateDeserializer.class)
-	@JsonSerialize(using = LocalDateSerializer.class)
+	@JsonDeserialize(using = LocalTimeDeserializer.class)
+	@JsonSerialize(using = LocalTimeSerializer.class)
 	@NotNull(message = "cannot be null")
 	private LocalTime matchTime;
 
@@ -78,7 +80,6 @@ public class Match {
 	@Convert(converter = SportConverter.class)
 	private Sport sport;
 
-	@EqualsAndHashCode.Exclude
 	@OneToMany(mappedBy = "match", cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE })
 	private List<MatchOdd> matchOdds;
 }

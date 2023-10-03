@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import gr.accepted.gamematch.exception.NotFoundException;
 import gr.accepted.gamematch.model.MatchOdd;
 import gr.accepted.gamematch.repository.MatchOddDao;
 import gr.accepted.gamematch.service.MatchOddService;
@@ -23,8 +22,7 @@ public class MatchOddServiceImpl implements MatchOddService {
 	@Override
 	public MatchOdd getMatchOddById(String matchOddId) {
 
-		return matchOddDao.findById(Long.valueOf(matchOddId))
-				.orElseThrow(() -> new NotFoundException("Match odd with id " + matchOddId + " does not exist"));
+		return null;
 
 	}
 
@@ -38,14 +36,14 @@ public class MatchOddServiceImpl implements MatchOddService {
 	@Override
 	public List<MatchOdd> getMatchOdds() {
 
-		return matchOddDao.findAll();
+		return null;
 
 	}
 
 	@Override
 	public MatchOdd createMatchOdd(@NotNull @Valid MatchOdd matchOdd) {
 
-		return matchOddDao.saveAndFlush(matchOdd);
+		return null;
 
 	}
 
@@ -58,17 +56,10 @@ public class MatchOddServiceImpl implements MatchOddService {
 	@Override
 	public void deleteMatchOdd(@NotNull String matchOddId) {
 
-		MatchOdd matchOdd = matchOddDao.findById(Long.valueOf(matchOddId))
-				.orElseThrow(() -> new NotFoundException("Match with id " + matchOddId + " does not exist"));
-
-		matchOddDao.delete(matchOdd);
-
 	}
 
 	@Override
 	public void deleteMatchOddsByMatchId(@NotNull String matchId) {
-
-		matchOddDao.deleteByMatchId(Long.valueOf(matchId));
 
 	}
 
